@@ -8,15 +8,15 @@ class ListOfExceptions{
         myList.add(48);
         myList.add("Goodbye World");
         
-        try{
-            for(int i = 0; i < myList.size(); i++) {
+        for(int i = 0; i < myList.size(); i++) {
+            try{
                 Integer castedValue = (Integer) myList.get(i);
                 System.out.println(castedValue);
+            } catch(Exception e){
+                System.out.println("Errors: " + e + " - Index of error: " + i + " - Value at error index: " + myList.get(i));
+            } finally {
+                System.out.println("Execution Failed");
             }
-        } catch(Exception e){
-            System.out.println("Error: Strings cannot be cast to class java.lang.Integer");
-        } finally {
-            System.out.println("Execution Failed");
         }
     }
 }
